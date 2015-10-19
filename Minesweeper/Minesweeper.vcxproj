@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{469160D4-3AF5-441F-A104-97D8D9D226B1}</ProjectGuid>
+    <ProjectGuid>{C853290C-F9BE-4317-A85B-ABBBCE83F8B1}</ProjectGuid>
     <RootNamespace>Minesweeper</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>

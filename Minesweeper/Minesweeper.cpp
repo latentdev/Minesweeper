@@ -31,7 +31,7 @@ void Minesweeper::Input()
 	int y;
 	//char temp;
 	int choice;
-	cout <<"1.Reveal a square"<<endl<<"2.Place a flag"<<endl << "3.Exit" << endl << "Enter the number of your choice:" << endl;
+	cout <<"1.Reveal a square"<<endl<<"2.Place a flag"<<endl << "3.Remove a flag" << endl << "4.Exit" <<endl << "Enter the number of your choice:" << endl;
 	cin >> choice;
 	//choice = temp - '0';
 	cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -63,7 +63,8 @@ void Minesweeper::Input()
 		istringstream(input) >> x;
 		board->Flag(x, y);
 	}
-	else if (choice == 3)
+	//write remove flag function
+	else if (choice == 4)
 		exit(0);
 }
 
@@ -87,5 +88,7 @@ void Minesweeper::Loop()
 	catch (const Exception& e) {
 		cout << e << endl;
 	}
+	
 	}
+	Loop();
 }

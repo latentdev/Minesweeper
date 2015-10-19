@@ -1,5 +1,6 @@
 #include "Board.h"
 #include <time.h>
+#include <sstream>
 
 Board::Board()
 {
@@ -69,8 +70,11 @@ void Board::Click(int x,int y)
 	}
 	else
 	{
+		string a;
 		game_over = true;
-		cout << "Game Over! You hit a bomb!" << endl;
+		cout << "Game Over! You hit a bomb!" << endl<<"Press any key to continue:";
+		getline(cin, a);
+		system("cls");
 	}
 }
 
@@ -93,7 +97,9 @@ void Board::Reveal(int x, int y)
 					{
 						num_bombs++;
 					}
-					if (num_bombs == 0)
+					if (num_bombs == 0 && board[x + i][y + j].getValue()>0)
+						board[x + i][y + j].setRevealed(true);
+					else if (num_bombs == 0)
 					{
 						Reveal(x + i, y + j);
 					}
@@ -105,12 +111,16 @@ void Board::Reveal(int x, int y)
 
 void Board::Display()
 {
+	system("cls");
 	char blank = 254;
+	char flag = 173; //'\u2691';
 	for (int i = 0; i < x_size; i++)
 	{
 		for (int m = 0; m < y_size; m++)
 		{
-			if (board[i][m].getRevealed() == true)
+			if (board[i][m].getFlagged() == true)
+				cout << flag;
+			else if (board[i][m].getRevealed() == true)
 				cout << board[i][m].getValue();
 			else
 				cout <<blank;

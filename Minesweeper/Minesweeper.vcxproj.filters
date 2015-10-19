@@ -15,19 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Exception.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Array2D.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Row.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Minesweeper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Board.cpp">
@@ -36,24 +24,36 @@
     <ClCompile Include="Cell.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Exception.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Minesweeper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Row.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array2D.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Exception.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Row.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Minesweeper.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Board.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Cell.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Exception.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Minesweeper.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Row.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
