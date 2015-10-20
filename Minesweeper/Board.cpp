@@ -4,7 +4,6 @@
 
 Board::Board()
 {
-	//board = NULL;
 	bombs = 0;
 }
 
@@ -16,17 +15,16 @@ Board::Board(int x, int y, int num_bombs)
 	y_size = y;
 	game_over = false;
 }
+
 void Board::Fill_Board()
 {
-	//Fill_Empty();
 	int num_bombs = bombs;
 	srand(time(NULL));
 	while (num_bombs > 0)
 	{
-		
 		int x = rand() % x_size;
 		int y = rand() % y_size;
-		//Cell*temp = board[x][y];
+
 		if (board[x][y].getValue() != 9)
 		{
 			board[x][y].setValue(9);
@@ -61,7 +59,6 @@ void Board::Click(int x,int y)
 {
 	if (board[x][y].getValue() != 9 && board[x][y].getFlagged()!=true)
 	{
-		//board[x][y].setRevealed(true);
 		Reveal(x, y);
 	}
 	else if (board[x][y].getFlagged() == true)
@@ -81,6 +78,29 @@ void Board::Click(int x,int y)
 void Board::Flag(int x, int y)
 {
 	board[x][y].setFlagged(true);
+}
+
+void Board::RemoveFlag(int x, int y)
+{
+	board[x][y].setFlagged(false);
+}
+
+bool Board::CheckIfWon()
+{
+	int num_unrevealed = 0;
+	int num_bombs = 0;
+	for (int i = 0; i < x_size; i++)
+		for (int m = 0; m < y_size;m++)
+		{
+			if (board[i][m].getRevealed() == false)
+				num_unrevealed++;
+			if (board[i][m].getValue() == 9)
+				num_bombs++;
+		}
+	if (num_unrevealed == num_bombs)
+		return true;
+	else
+		return false;
 }
 
 void Board::Reveal(int x, int y)
@@ -129,7 +149,22 @@ void Board::Display()
 	}
 }
 
+void Board::DisplayValue()
+{
+	for (int i = 0; i < x_size; i++)
+	{
+		for (int m = 0; m < y_size; m++)
+			cout << board[i][m].getValue();
+		cout << endl;
+	}
+}
+
 bool Board::getGame_Over()
 {
 	return game_over;
+}
+
+void Board::setGame_Over(bool x)
+{
+	game_over = x;
 }

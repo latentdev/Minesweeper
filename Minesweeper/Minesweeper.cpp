@@ -1,6 +1,5 @@
 #include "Minesweeper.h"
 #include <iostream>
-//#include <string>
 #include <sstream>
 
 Minesweeper::Minesweeper()
@@ -29,13 +28,11 @@ void Minesweeper::Input()
 {
 	int x;
 	int y;
-	//char temp;
 	int choice;
 	cout <<"1.Reveal a square"<<endl<<"2.Place a flag"<<endl << "3.Remove a flag" << endl << "4.Exit" <<endl << "Enter the number of your choice:" << endl;
 	cin >> choice;
-	//choice = temp - '0';
 	cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-	if (choice != 1 && choice != 2 && choice != 3)
+	if (choice != 1 && choice != 2 && choice != 3 && choice != 4)
 	{
 		throw Exception("Please enter a valid number");
 		Input();
@@ -63,17 +60,31 @@ void Minesweeper::Input()
 		istringstream(input) >> x;
 		board->Flag(x, y);
 	}
-	//write remove flag function
+	else if (choice == 3)
+	{
+		cout << "Please enter x coordinate of flag you want to remove:";
+		getline(cin, input);
+		istringstream(input) >> y;
+
+		cout << "Please enter y coordinate of flag you want to remove:";
+		getline(cin, input);
+		istringstream(input) >> x;
+		board->RemoveFlag(x, y);
+	}
 	else if (choice == 4)
 		exit(0);
 }
 
+
 void Minesweeper::Step()
 {
-	//difficulty();
-	//board->Fill_Board();
 	board->Display();
 	Input();
+	if (board->CheckIfWon() == true)
+	{
+		cout << "You won!" << endl;
+		board->setGame_Over(true);
+	}
 }
 
 void Minesweeper::Loop()
