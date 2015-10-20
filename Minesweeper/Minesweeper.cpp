@@ -2,12 +2,26 @@
 #include <iostream>
 #include <sstream>
 
+/******************************************************
+*   Purpose:  default constructor for Minesweeper
+
+*         Entry:  none
+
+*         Exit: creates a new empty board and sets diff_select to false
+*******************************************************/
 Minesweeper::Minesweeper()
 {
 	board = new Board();
 	diff_select = NULL;
 }
 
+/******************************************************
+*   Purpose:  handles the difficulty select
+
+*         Entry:  none
+
+*         Exit: displays a menu for the user to pick from and creates a board that is set for the difficulty selected
+*******************************************************/
 void Minesweeper:: difficulty()
 {
 	cout << "b = beginner" << endl << "i = intermediate" << endl << "e = expert" << endl << "Please choose difficulty:";
@@ -24,6 +38,13 @@ void Minesweeper:: difficulty()
 		board = new Board(16, 30, 100);
 }
 
+/******************************************************
+*   Purpose:  handles the input for the actual game
+
+*         Entry:  none
+
+*         Exit: displays menu for the user to select from then calls the appropriate function to deal with the input
+*******************************************************/
 void Minesweeper::Input()
 {
 	int x;
@@ -75,7 +96,14 @@ void Minesweeper::Input()
 		exit(0);
 }
 
+/******************************************************
+*   Purpose:  one step of the game of minesweeper
 
+*         Entry:  none
+
+*         Exit: outputs the board and displays a menu asking the user to input there choice
+				call CheckIfWon() to determine if the game has been won
+*******************************************************/
 void Minesweeper::Step()
 {
 	board->Display();
@@ -87,6 +115,13 @@ void Minesweeper::Step()
 	}
 }
 
+/******************************************************
+*   Purpose:  main game loop for minesweeper
+
+*         Entry:  none
+
+*         Exit: call difficulty() then fills the board based on the chosen difficulty. loops till game_over = true. then calls itself to restart the game.
+*******************************************************/
 void Minesweeper::Loop()
 {
 	difficulty();
